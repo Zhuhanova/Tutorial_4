@@ -1,7 +1,5 @@
 package org.example;
 
-import org.w3c.dom.events.Event;
-
 import java.util.ArrayList;
 
 public class Customer {
@@ -9,7 +7,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-    ArrayList<Event> reservationList = new ArrayList<>();
+    private ArrayList<Event> reservationList = new ArrayList<>();
 
     public Customer(String firstName, String lastName, String email, ArrayList<Event> reservationList) {
 
@@ -51,5 +49,17 @@ public Customer(String firstName, String lastName, String email) {
         this.reservationList = reservationList;
     }
 
+    public void addReservation(Event event) {
+        reservationList.add(event);
+    }
 
+    public void cancelReservation(Event event) {
+        reservationList.remove(event);
+    }
+
+    public void displayReservations() {
+        for (Event e : reservationList) {
+            System.out.println(e);
+        }
+    }
 }

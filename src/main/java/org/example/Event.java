@@ -1,3 +1,5 @@
+package org.example;
+
 public class Event {
 
     private String name;
@@ -97,8 +99,11 @@ public class Event {
                 '}';
     }
 
-    public void reserveSeat(int numberOfSeats) {
-
-        availableSeats--;
+    public boolean reserveSeat() {
+        if (availableSeats > 0) {
+            availableSeats--;
+            return true;
+        }
+        return false;
     }
 }
